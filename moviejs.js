@@ -1,12 +1,22 @@
 
 
-fetch('http://localhost:3000/movies')
+fetch("http://localhost:3000/movies")
     .then(response => response.json())
-    .then(data => {
-        console.log(data)
+    .then(data => console.log(data))
+    .catch (error => console.error(error));
 
+let moviesHTML = movies.map(movies =>{
+    return `<div class="card"></div>
+            <div class="card-title">
+            <h3>Title</h3>
+</div>
+<div class="card-body">
+<p>${movies.title}</p>
+<p>${movies.rating}</p>
+</div>`
+})
 
-    })
+console.log(moviesHTML)
 
 
 
