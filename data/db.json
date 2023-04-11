@@ -16,11 +16,6 @@
       "rating": 9
     },
     {
-      "title": "d",
-      "rating": "5",
-      "id": 4
-    },
-    {
       "title": "rt",
       "rating": "4",
       "id": 5
@@ -29,6 +24,11 @@
       "title": "beast",
       "rating": "4",
       "id": 6
+    },
+    {
+      "title": null,
+      "rating": null,
+      "id": 7
     }
   ]
 }

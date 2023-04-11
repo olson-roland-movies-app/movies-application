@@ -2,21 +2,29 @@
 
 fetch("http://localhost:3000/movies")
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch (error => console.error(error));
-
-let moviesHTML = movies.map(movies =>{
-    return `<div class="card"></div>
+    .then(movieData => {
+        console.log(movieData)
+        let moviesHTML = movieData.map(movie =>{
+            return `<div class="card"></div>
             <div class="card-title">
             <h3>Title</h3>
 </div>
 <div class="card-body">
-<p>${movies.title}</p>
-<p>${movies.rating}</p>
+<p>${movie.title}</p>
+<p>${movie.rating}</p>
 </div>`
-})
+        })
+        document.getElementsByTagName("body")
+            [0].innerHTML=moviesHTML.join("");
 
-console.log(moviesHTML)
+
+    })
+    .catch (error => console.error(error));
+
+
+
+
+
 
 
 
