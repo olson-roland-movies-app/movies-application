@@ -1,19 +1,49 @@
+
+
+
+
 fetch("http://localhost:3000/movies")
     .then(response => response.json())
     .then(movieData => {
         console.log(movieData)
+        // sets all the data we get back into html list
         let moviesHTML = movieData.map(movie =>{
             return `<div class="card"></div>
             <div class="card-title">
-            <h3>Title</h3>
+            <h3>Movie Name & Rating</h3>
 </div>
 <div class="card-body">
 <p>${movie.title}</p>
 <p>${movie.rating}</p>
 </div>`
         })
+// from that list, I will append/concat this html form snippet to my pre-existing html(the moviesHTML variable turns into a string by using the join method)
+        moviesHTML = `<div id="movies-list"></div>
+<div id="add-movie-form">
+    <h2>Add a New Movie</h2>
+    <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="10">
+        <button type="submit">Add Movie</button>
+    </form>
+</div>
+<div id="edit-movie-form">
+    <h2>Edit Movie</h2>
+    <form>
+        <input type="hidden" id="edit-movie-id" name="id">
+        <label for="edit-movie-title">Title:</label>
+        <input type="text" id="edit-movie-title" name="title">
+        <label for="edit-movie-rating">Rating:</label>
+        <input type="number" id="edit-movie-rating" name="rating" min="1" max="10">
+        <button type="submit">Save Changes</button>
+    </form>
+</div>` + moviesHTML.join("")
+        console.log(moviesHTML)
+        // set my html with the id of movie-content equal to moviesHTML
         document.getElementById("movie-content")
-            .innerHTML=moviesHTML.join("");
+            .innerHTML= moviesHTML;
 
 
     })
@@ -62,6 +92,36 @@ function deleteMovie(id) {
 }
 
 deleteMovie(11)
+
+const addMovieButton = document.querySelector('#add-movie-form button[type="submit"]');
+addMovieButton.addEventListener('click', function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Get the values of the input fields
+    const title = document.querySelector('#add-movie-form input[name="title"]').value;
+    const rating = document.querySelector('#add-movie-form input[name="rating"]').value;
+
+    // Create a JavaScript object containing the values of the input fields
+    const newMovie = {
+        title: title,
+        rating: rating
+    };
+
+    fetch('http://localhost:3000/movies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    })
+        .then(response => response.json())
+        .then(movieData => {
+            console.log(movieData);
+            // Reload the page or update the DOM to show the new movie entry
+        })
+        .catch(error => console.log(error));
+});
 
 
 // {
