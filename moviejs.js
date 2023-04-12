@@ -28,35 +28,6 @@ fetch("http://localhost:3000/movies")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 fetch("http://localhost:3000/movies")
    .then(response => response.json())
    .then(data => console.log(data))
@@ -64,9 +35,9 @@ fetch("http://localhost:3000/movies")
 
 
 function addMovie(title, rating){
-   title = prompt("Add A Movie")
-   rating = prompt("Give Your Movie A Rating")
-   return {title, rating};
+   // title = prompt("Add A Movie")
+   // rating = prompt("Give Your Movie A Rating")
+   // return {title, rating};
 }
 
 // console.log(addMovie())

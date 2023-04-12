@@ -14,21 +14,6 @@
       "id": 3,
       "title": "Napoleon Dynamite",
       "rating": 9
-    },
-    {
-      "title": "rt",
-      "rating": "4",
-      "id": 5
-    },
-    {
-      "title": "beast",
-      "rating": "4",
-      "id": 6
-    },
-    {
-      "title": null,
-      "rating": null,
-      "id": 7
     }
   ]
 }
