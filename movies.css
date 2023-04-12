@@ -1,0 +1,15 @@
+h2{
+    color: red;
+}
+
+.card-body{
+    color: green;
+}
+
+.card-title{
+    color: blue;
+}
+
+.row{
+    border: 1px solid black;
+}

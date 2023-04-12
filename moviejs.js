@@ -1,21 +1,26 @@
-
-
-
-
 fetch("http://localhost:3000/movies")
     .then(response => response.json())
     .then(movieData => {
         console.log(movieData)
         // sets all the data we get back into html list
         let moviesHTML = movieData.map(movie =>{
-            return `<div class="card"></div>
+            return `
+            <div class="row col-4">
+                <div class="column">
+            <div class="card"></div>
             <div class="card-title">
             <h3>Movie Name & Rating</h3>
-</div>
+
 <div class="card-body">
 <p>${movie.title}</p>
 <p>${movie.rating}</p>
+            </div>
+        </div>
+       </div>
+    </div>
 </div>`
+
+
         })
 // from that list, I will append/concat this html form snippet to my pre-existing html(the moviesHTML variable turns into a string by using the join method)
         moviesHTML = `<div id="movies-list"></div>
@@ -26,7 +31,7 @@ fetch("http://localhost:3000/movies")
         <input type="text" id="title" name="title">
         <label for="rating">Rating:</label>
         <input type="number" id="rating" name="rating" min="1" max="10">
-        <button type="submit">Add Movie</button>
+        <button type="submit" id="add-btn">Add Movie</button>
     </form>
 </div>
 <div id="edit-movie-form">
@@ -37,10 +42,10 @@ fetch("http://localhost:3000/movies")
         <input type="text" id="edit-movie-title" name="title">
         <label for="edit-movie-rating">Rating:</label>
         <input type="number" id="edit-movie-rating" name="rating" min="1" max="10">
-        <button type="submit">Save Changes</button>
+        <button type="submit" id="edit-btn">Save Changes</button>
     </form>
 </div>` + moviesHTML.join("")
-        console.log(moviesHTML)
+        // console.log(moviesHTML)
         // set my html with the id of movie-content equal to moviesHTML
         document.getElementById("movie-content")
             .innerHTML= moviesHTML;
@@ -72,16 +77,7 @@ function addMovie(title, rating){
 
 
 
-fetch("http://localhost:3000/movies",{
-    method: 'POST',
-    headers:{
-        'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify(addMovie())
 
-}) .then(response => response.json())
-    .then(data => console.log(data))
-    .catch (error => console.log(error));
 
 function deleteMovie(id) {
     fetch(`http://localhost:3000/movies/${id}`, {
@@ -91,38 +87,42 @@ function deleteMovie(id) {
         .catch (error => console.log(error));
 }
 
-deleteMovie(11)
+// deleteMovie(11)
+setTimeout(function (){
+    const addMovieButton = $('#add-btn');
+// const addMovieButton = document.querySelector('#add-btn');
+    console.log(addMovieButton)
+    addMovieButton.click(function(event) {
 
-const addMovieButton = document.querySelector('#add-movie-form button[type="submit"]');
-addMovieButton.addEventListener('click', function(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
+        event.preventDefault();
 
-    // Get the values of the input fields
-    const title = document.querySelector('#add-movie-form input[name="title"]').value;
-    const rating = document.querySelector('#add-movie-form input[name="rating"]').value;
 
-    // Create a JavaScript object containing the values of the input fields
-    const newMovie = {
-        title: title,
-        rating: rating
-    };
+        const title = document.querySelector('#title').value;
+        const rating = document.querySelector('#rating').value;
+        console.log(title)
 
-    fetch('http://localhost:3000/movies', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newMovie)
-    })
-        .then(response => response.json())
-        .then(movieData => {
-            console.log(movieData);
-            // Reload the page or update the DOM to show the new movie entry
+
+        const newMovie = {
+            title: title,
+            rating: rating
+        };
+        //post request(fetch)
+        fetch('http://localhost:3000/movies', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newMovie)
         })
-        .catch(error => console.log(error));
-});
+            .then(response => response.json())
+            .then(movieData => {
+                console.log(movieData);
+                location.reload();
 
+            })
+            .catch(error => console.log(error));
+    });
+}, 1500)
 
 // {
 //     $(document).ready(function () {
@@ -185,6 +185,21 @@ addMovieButton.addEventListener('click', function(event) {
 //
 //
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
