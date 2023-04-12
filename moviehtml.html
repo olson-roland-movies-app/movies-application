@@ -1,105 +1,144 @@
-<!doctype html>
-<html lang="en">
+!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Document</title>-->
+<!--    <style>-->
+<!--        form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            margin-bottom: 1em;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            margin-bottom: 0.5em;-->
+<!--        }-->
+
+<!--        input, select {-->
+<!--            padding: 0.5em;-->
+<!--            margin-bottom: 1em;-->
+<!--            border-radius: 0.3em;-->
+<!--            border: none;-->
+<!--            box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);-->
+<!--        }-->
+
+<!--        input[type="submit"] {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        table {-->
+<!--            border-collapse: collapse;-->
+<!--            width: 100%;-->
+<!--        }-->
+
+<!--        th, td {-->
+<!--            padding: 0.5em;-->
+<!--            text-align: left;-->
+<!--            border-bottom: 1px solid #ddd;-->
+<!--        }-->
+
+<!--        th {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--        }-->
+
+<!--        td:last-child {-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            background-color: #dc3545;-->
+<!--            color: #fff;-->
+<!--            padding: 0.5em;-->
+<!--            border-radius: 0.3em;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script src="moviejs.js"></script>-->
+
+<!--<button id="deletebutton">delete movie</button>-->
+<!--<button id="addbutton">add movie</button>-->
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--<form id="movie-form">-->
+<!--    <input type="hidden" id="movie-id">-->
+<!--    <label for="movie-title">Title:</label>-->
+<!--    <input type="text" id="movie-title" required>-->
+<!--    <label for="movie-rating">Rating:</label>-->
+<!--    <select id="movie-rating" required>-->
+<!--        <option value="">&#45;&#45; Select a rating &#45;&#45;</option>-->
+<!--        <option value="1">1 star</option>-->
+<!--        <option value="2">2 stars</option>-->
+<!--        <option value="3">3 stars</option>-->
+<!--        <option value="4">4 stars</option>-->
+<!--        <option value="5">5 stars</option>-->
+<!--    </select>-->
+<!--    <input type="submit" value="Save">-->
+<!--</form>-->
+<!--    </div>-->
+<!--    <div class="table">-->
+<!--<table id="movies-table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Title</th>-->
+<!--        <th>Rating</th>-->
+<!--        <th></th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        form {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 1em;
-        }
-
-        label {
-            margin-bottom: 0.5em;
-        }
-
-        input, select {
-            padding: 0.5em;
-            margin-bottom: 1em;
-            border-radius: 0.3em;
-            border: none;
-            box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            padding: 0.5em;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        td:last-child {
-            text-align: center;
-        }
-
-        button {
-            background-color: #dc3545;
-            color: #fff;
-            padding: 0.5em;
-            border-radius: 0.3em;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <title>Movie Application</title>
 </head>
 <body>
-<script src="moviejs.js"></script>
 
-<button id="deletebutton">delete movie</button>
-<button id="addbutton">add movie</button>
+<div id="loading-message">Loading...</div>
 
-
-<div class="container">
-    <div class="row">
-<form id="movie-form">
-    <input type="hidden" id="movie-id">
-    <label for="movie-title">Title:</label>
-    <input type="text" id="movie-title" required>
-    <label for="movie-rating">Rating:</label>
-    <select id="movie-rating" required>
-        <option value="">-- Select a rating --</option>
-        <option value="1">1 star</option>
-        <option value="2">2 stars</option>
-        <option value="3">3 stars</option>
-        <option value="4">4 stars</option>
-        <option value="5">5 stars</option>
-    </select>
-    <input type="submit" value="Save">
-</form>
-    </div>
-    <div class="table">
-<table id="movies-table">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Rating</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-    </div>
+<div id="movies-list"></div>
+<div id="add-movie-form">
+    <h2>Add a New Movie</h2>
+    <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="10">
+        <button type="submit">Add Movie</button>
+    </form>
 </div>
+<div id="edit-movie-form">
+    <h2>Edit Movie</h2>
+    <form>
+        <input type="hidden" id="edit-movie-id" name="id">
+        <label for="edit-movie-title">Title:</label>
+        <input type="text" id="edit-movie-title" name="title">
+        <label for="edit-movie-rating">Rating:</label>
+        <input type="number" id="edit-movie-rating" name="rating" min="1" max="10">
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+<div id="movie-content"> </div>
 
+<script src="/js/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="moviejs.js"></script>
 </body>
 </html>
