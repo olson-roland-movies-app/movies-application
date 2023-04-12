@@ -5,13 +5,15 @@ fetch("http://localhost:3000/movies")
         // sets all the data we get back into html list
         let moviesHTML = movieData.map(movie =>{
             return `
-            <div class="row col-4">
+<div class="card">
+            <div class="float-container">
                 <div class="column">
-            <div class="card"></div>
+            <div class="cards"></div>
             <div class="card-title">
             <h3>Movie Name & Rating</h3>
 
 <div class="card-body">
+</div>
 <p>${movie.title}</p>
 <p>${movie.rating}</p>
             </div>
@@ -19,8 +21,6 @@ fetch("http://localhost:3000/movies")
        </div>
     </div>
 </div>`
-
-
         })
 // from that list, I will append/concat this html form snippet to my pre-existing html(the moviesHTML variable turns into a string by using the join method)
         moviesHTML = `<div id="movies-list"></div>
@@ -45,7 +45,6 @@ fetch("http://localhost:3000/movies")
         <button type="submit" id="edit-btn">Save Changes</button>
     </form>
 </div>` + moviesHTML.join("")
-        // console.log(moviesHTML)
         // set my html with the id of movie-content equal to moviesHTML
         document.getElementById("movie-content")
             .innerHTML= moviesHTML;
@@ -55,29 +54,10 @@ fetch("http://localhost:3000/movies")
     .catch (error => console.log(error));
 
 
-
-
-
-
-
-
 fetch("http://localhost:3000/movies")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch (error => console.log(error));
-
-
-function addMovie(title, rating){
-    // title = prompt("Add A Movie")
-    // rating = prompt("Give Your Movie A Rating")
-    // return {title, rating};
-}
-
-// console.log(addMovie())
-
-
-
-
 
 function deleteMovie(id) {
     fetch(`http://localhost:3000/movies/${id}`, {
@@ -124,67 +104,7 @@ setTimeout(function (){
     });
 }, 1500)
 
-// {
-//     $(document).ready(function () {
-//         // Display loading message
-//         $('#loading-message').show();
-//
-//         // Get all movies
-//         fetch({
-//             url: 'https://localhost:3000/movies',
-//             method: 'GET',
-//             success: function (response) {
-//                 // Remove loading message
-//                 $('#loading-message').hide();
-//
-//                 // Generate HTML for movies list
-//                 let moviesHtml = '';
-//                 for (let i = 0; i < response.length; i++) {
-//                     let movie = response[i];
-//                     moviesHtml += '<div class="movie" data-id="' + movie.id + '">';
-//                     moviesHtml += '<h3>' + movie.title + '</h3>';
-//                     moviesHtml += '<p>Rating: ' + movie.rating + '</p>';
-//                     moviesHtml += '<button class="edit-movie">Edit</button>';
-//                     moviesHtml += '<button class="delete-movie">Delete</button>';
-//                     moviesHtml += '</div>';
-//                 }
-//                 $('#movies-list').html(moviesHtml);
-//             },
-//             // error: function () {
-//             //     alert('An error occurred while fetching movie list.');
-//             // }
-//         });
-//
-//
-//         // Add movie form submission
-//         $('#add-movie-form form').submit(function (event) {
-//             event.preventDefault();
-//             let title = $('#add-movie-form #title').val();
-//             let rating = $('#add-movie-form #rating').val();
-//                 fetch({
-//                 url: 'https://localhost:3000/movies',
-//                 method: 'POST',
-//                 data: {title: title, rating: rating},
-//                 success: function (response) {
-//                     // Append new movie to list
-//                     var movieHtml = '<div class="movie" data-id="' + response.id + '">';
-//                     movieHtml += '<h3>' + response.title + '</h3>';
-//                     movieHtml += '<p>Rating: ' + response.rating + '</p>';
-//                     movieHtml += '<button class="edit-movie">Edit</button>';
-//                     movieHtml += '<button class="delete-movie">Delete</button>';
-//                     movieHtml += '</div>';
-//                     $('#movies-list').append(movieHtml);
-//                 }
-//             })
-//         })
-//     })
-// }
-//
-//
-//
-//
-//
-//
+
 
 
 
