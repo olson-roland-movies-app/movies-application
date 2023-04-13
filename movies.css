@@ -1,14 +1,42 @@
-h2{
-    color: red;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
+
+body{
+    background: #1D212B;
+}
+
+section{
+    /*position: relative;*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #1D212B;
+
+
+}
+
+
+
+section h2{
+    font-size: 60px;
+}
+
+
+
+
+
+
 
 .card-body{
     color: green;
 }
 
-.card-title{
-    color: blue;
-}
 
 .float-container{
     border: 1px solid black;
@@ -19,8 +47,26 @@ h2{
 }
 .card{
     display:flex;
-    margin: 10px;
+    margin: 15px;
+    padding: 15px;
+    margin-left: 50px;
+    width: 25%;
     float: left;
+    background-color: dodgerblue;
+
 }
+
+.card-title{
+    color: #1D212B;
+}
+
+/*.content {*/
+/*    position: fixed;*/
+/*    bottom: 0;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*    !*color: #f1f1f1;*!*/
+/*    width: 100%;*/
+/*    padding: 20px;*/
+/*}*/
 
 
