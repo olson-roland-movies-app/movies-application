@@ -6,9 +6,7 @@ fetch("http://localhost:3000/movies")
         let moviesHTML = movieData.map(movie =>{
             return `
 
-<!--<div>-->
-<!--<img src="https://www.istockphoto.com/vector/movie-time-vector-illustration-cinema-poster-concept-on-red-round-background-gm911590226-250985657">-->
-<!--</div>-->
+
 
 
 <div class="card">
