@@ -3,7 +3,7 @@ fetch("http://localhost:3000/movies")
     .then(movieData => {
         console.log(movieData)
         // sets all the data we get back into html list
-        let moviesHTML = movieData.map(movie =>{
+        let moviesHTML = movieData.map(movie => {
             return `
 
 
@@ -59,17 +59,37 @@ fetch("http://localhost:3000/movies")
 </div>` + moviesHTML.join("")
         // set my html with the id of movie-content equal to moviesHTML
         document.getElementById("movie-content")
-            .innerHTML= moviesHTML;
+            .innerHTML = moviesHTML;
 
 
+    }).then(data => {
+    // Edit movie button event listener
+    let editMovie = $('#edit-btn');
+    console.log(editMovie)
+    editMovie.on('click', function (event) {
+        console.log('working')
+        event.preventDefault();
+
+
+        // Get the movie ID from the data attribute
+        const id = $(this).data('id');
+
+        // Get the updated movie data from the form
+        const title = $('#edit-movie-title').val();
+        const rating = $('#edit-movie-rating').val();
+        const updatedMovie = {
+            title: title,
+            rating: rating
+        }
     })
-    .catch (error => console.log(error));
+})
+    .catch(error => console.log(error));
 
 
 fetch("http://localhost:3000/movies")
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch (error => console.log(error));
+    .catch(error => console.log(error));
 
 function deleteMovie(id) {
     fetch(`http://localhost:3000/movies/${id}`, {
@@ -81,12 +101,12 @@ function deleteMovie(id) {
 //1. Make event listener
 //2. grab the dataAttribute so that I can pass that id into my function
 //ex: Number(deleteBtn.getAttribute("data-deleteId"));
- deleteMovie(deleteBtn.getAttribute("data-deleteId"))
-setTimeout(function (){
+//  deleteMovie(deleteBtn.getAttribute("data-deleteId"))
+setTimeout(function () {
     const addMovieButton = $('#add-btn');
 // const addMovieButton = document.querySelector('#add-btn');
     console.log(addMovieButton)
-    addMovieButton.click(function(event) {
+    addMovieButton.click(function (event) {
 
         event.preventDefault();
 
@@ -119,53 +139,48 @@ setTimeout(function (){
 }, 1500)
 
 
+// Send a PUT request to update the movie
+fetch(`http://localhost:3000/movies/${id}`, {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedMovie)
+})
+    .then(response => response.json())
+    .then(movieData => {
+        console.log(movieData);
+        // location.reload();
+    })
+    .catch(error => console.log(error))
 
 
-setTimeout(function (){
-    const editMovieButton = $('#edit-btn');
-// const addMovieButton = document.querySelector('#add-btn');
-    console.log(editMovieButton)
-    editMovieButton.click(function(event) {
 
-        event.preventDefault();
+// Delete movie button event listener
+const deleteMovieButton = $('#delete-btn');
+deleteMovieButton.click(function(event) {
+    event.preventDefault();
 
+    // Get the movie ID from the data attribute
+    const id = $(this).data('id');
 
-        const title = document.querySelector('#edit-movie-title').value;
-        const rating = document.querySelector('#edit-movie-rating').value;
-        console.log(title)
-
-
-        const editMovie = {
-            title: title,
-            rating: rating
-        };
-        //post request(fetch)
-        fetch(`http://localhost:3000/movies/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(editMovie)
+    // Send a DELETE request to delete the movie
+    fetch(`http://localhost:3000/movies/${id}`, {
+        method: 'DELETE',
+    })
+        .then(response => response.json())
+        .then(movieData => {
+            console.log(movieData);
+            location.reload();
         })
-            .then(response => response.json())
-            .then(movieData => {
-                console.log(movieData);
-                location.reload();
-
-            })
-            .catch(error => console.log(error));
-    });
-}, 1500)
+        .catch(error => console.log(error));
+});
 
 
 //1. put edit form each movie card
 //2. on your edit and delete button, put a !data attribute! that will contain the id of the movie you want to delete or edit
 //3. make event listener for delete and edit movie
 //4. get data attribute using grabAttribute method to grab the id of the movie so that you can edit and delete a movie
-
-
-
-
 
 
 
