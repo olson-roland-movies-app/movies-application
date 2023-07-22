@@ -1,89 +1,44 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "National Treasure",
-      "rating": 5
+      "title": "up",
+      "genre": "Disney",
+      "director": "N/A",
+      "year": "0",
+      "rating": "5",
+      "id": 2
     },
     {
-      "id": 2,
-      "title": "This is the End",
-      "rating": 5
+      "title": "cars",
+      "genre": "Disney",
+      "director": "N/A",
+      "year": "0",
+      "rating": "5",
+      "id": 3
     },
     {
-      "id": 3,
-      "title": "Napoleon Dynamite",
-      "rating": 7
+      "title": "salt",
+      "genre": "N/A",
+      "director": "N/A",
+      "year": "0",
+      "rating": "N/A",
+      "id": 5
     },
     {
-      "id": 4,
-      "title": "Tetris",
-      "rating": 7
+      "title": "Snow White",
+      "genre": "N/A",
+      "director": "N/A",
+      "year": "0",
+      "rating": "N/A",
+      "id": 6
     },
     {
-      "id": 5,
-      "title": "Smile",
-      "rating": 3
-    },
-    {
-      "id": 6,
-      "title": "Jurassic park",
-      "rating": 7
-    },
-    {
-      "id": 7,
-      "title": "Interstellar",
-      "rating": 10
-    },
-    {
-      "id": 8,
-      "title": "Avatar",
-      "rating": 9
-    },
-    {
-      "id": 9,
-      "title": "Home Alone",
-      "rating": 7
-    },
-    {
-      "id": 10,
-      "title": "Prey",
-      "rating": 9
-    },
-    {
-      "title": "Night at the Museum",
-      "rating": "8",
-      "id": 11
-    },
-    {
-      "title": "batman",
-      "rating": "9",
-      "id": 12
-    },
-    {
-      "title": "bhjgjhg",
-      "rating": "2",
-      "id": 13
-    },
-    {
-      "title": "",
-      "rating": "",
-      "id": 14
-    },
-    {
-      "title": "",
-      "rating": "",
-      "id": 15
-    },
-    {
-      "title": "knkjhbkjh",
-      "rating": "1",
-      "id": 16
-    },
-    {
-      "title": "",
-      "rating": "",
-      "id": 17
+      "title": "happy gilmore",
+      "genre": "N/A",
+      "director": "N/A",
+      "year": "1",
+      "rating": "5",
+      "id": 8
     }
   ]
 }
