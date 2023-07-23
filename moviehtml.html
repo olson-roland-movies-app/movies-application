@@ -27,6 +27,37 @@
     <img src="img/water.png">
 </section>
 <div id="popUpScreen" class="modal" style="border-radius: 20px;">
+    <div class="modal-content" style="width: 500px; height: 500px;">
+        <h3 style="color: black;">Please Enter Movie Info:</h3>
+        <input type="text" id="titleInput" placeholder="Title" style="border-radius: 7px;">
+        <input type="text" id="genreInput" placeholder="Genre" style="border-radius: 7px;">
+        <input type="text" id="directorInput" placeholder="Director" style="border-radius: 7px;">
+        <input type="number" id="yearInput" placeholder="Year" style="border-radius: 7px;">
+        <input type="text" id="ratingInput" placeholder="Rating" style="border-radius: 7px;">
+        <button id="okBtn" style="margin:10px; border: none; border-radius: 7px;">OK</button>
+        <button id="cancelBtn" style="margin:10px; border: none; border-radius: 7px;">Cancel</button>
+    </div>
+</div>
+<div id="editPopUpScreen" class="modal" style="border-radius: 20px;">
+    <div class="modal-content" style="width: 500px; height: 500px;">
+        <h3 style="color: black;">Please Enter Movie Info:</h3>
+        <input type="text" id="titleInput1" style="border-radius: 7px;">
+        <input type="text" id="genreInput1" style="border-radius: 7px;">
+        <input type="text" id="directorInput1" style="border-radius: 7px;">
+        <input type="number" id="yearInput1" style="border-radius: 7px;">
+        <input type="text" id="ratingInput1" style="border-radius: 7px;">
+        <button id="okBtn1" style="margin:10px; border: none; border-radius: 7px;">OK</button>
+        <button id="cancelBtn1" style="margin:10px; border: none; border-radius: 7px;">Cancel</button>
+    </div>
+</div>
+<div id="json-data" class="sec"></div>
+<script src="moviejs.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
 
 
 
